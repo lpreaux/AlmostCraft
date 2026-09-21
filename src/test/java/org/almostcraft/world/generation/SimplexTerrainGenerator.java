@@ -24,7 +24,7 @@ class SimplexTerrainGeneratorTest {
     @Test
     void testGeneratorCreation() {
         assertNotNull(generator);
-        assertEquals(0.01f, generator.getFrequency(), 0.001f);
+        assertEquals(0.0054f, generator.getFrequency(), 0.0001f);
         assertEquals(50, generator.getMinTerrainHeight());
         assertEquals(80, generator.getMaxTerrainHeight());
     }

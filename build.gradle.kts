@@ -9,6 +9,12 @@ application {
     mainClass.set("org.almostcraft.AlmostCraftApplication")
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(23))
+    }
+}
+
 tasks.named<JavaExec>("run") {
     if (OperatingSystem.current().isMacOsX) {
         jvmArgs("-XstartOnFirstThread")

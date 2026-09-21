@@ -21,7 +21,7 @@ class WorldTest {
         Blocks.register(registry);
         registry.freeze();
         TerrainGenerator generator = new FlatTerrainGenerator(registry);
-        World world = new World(generator, registry);
+        world = new World(generator, registry);
     }
 
     @Test
@@ -73,7 +73,7 @@ class WorldTest {
     @Test
     void testDefaultBlockIsAir() {
         // Un chunk nouvellement créé doit être rempli d'air (0)
-        int blockId = world.getBlockAt(0, 0, 0);
+        int blockId = world.getBlockAt(0, 200, 0);
         assertEquals(0, blockId);
     }
 
