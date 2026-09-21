@@ -23,7 +23,7 @@ class ChunkLoaderTest {
 
         FlatTerrainGenerator generator = new FlatTerrainGenerator(registry);
         world = new World(generator, registry);
-        chunkLoader = new ChunkLoader(world, 4); // Render distance = 4
+        chunkLoader = new ChunkLoader(world, 4, null); // Simulation distance = 4
     }
 
     @Test
@@ -85,8 +85,8 @@ class ChunkLoaderTest {
 
     @Test
     void testRenderDistanceChange() {
-        chunkLoader.setRenderDistance(2);
-        assertEquals(2, chunkLoader.getRenderDistance());
+        chunkLoader.setSimulationDistance(2);
+        assertEquals(2, chunkLoader.getSimulationDistance());
 
         Vector3f pos = new Vector3f(0, 64, 0);
         chunkLoader.loadInitialChunks(pos);
@@ -98,11 +98,11 @@ class ChunkLoaderTest {
     @Test
     void testInvalidRenderDistance() {
         assertThrows(IllegalArgumentException.class, () ->
-                new ChunkLoader(world, 0)
+                new ChunkLoader(world, 0, null)
         );
 
         assertThrows(IllegalArgumentException.class, () ->
-                new ChunkLoader(world, 33)
+                new ChunkLoader(world, 33, null)
         );
     }
 }

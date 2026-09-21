@@ -164,8 +164,8 @@ public class Blocks {
      * @throws IllegalStateException si les blocs ont déjà été enregistrés
      */
     public static void register(BlockRegistry registry) {
-        if (registered) {
-            logger.warn("Attempted to register blocks multiple times, ignoring");
+        if (registry.exists(AIR.id())) {
+            logger.warn("Vanilla blocks are already registered in this registry, ignoring");
             return;
         }
 
